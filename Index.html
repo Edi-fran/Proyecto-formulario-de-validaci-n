@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación del Proyecto</title>
+    <link href="estilo.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="https://uees.edu.ec/wp-content/uploads/2021/03/logo-pie-de-pagina.png" alt="Logo UEES" class="logo-universidad">
+        <h1 class="descripcion">Universidad de Especialidades Espíritu Santo</h1>
+        <h1 class="descripcion">Facultad de Ingeniería</h2>
+        <h1 class="descripcion">Proyecto Práctico</h1>
+        <h3 class="descripcion">Asignatura: Lenguajes de Programación</h3>
+            <p class="descripcion">Docente: ING.DAVID JULIÁN GURUMENDI PARRAGA</p>
+    </header>
+    <br>
+
+    <!-- Introducción -->
+    <div class="container">
+        <div class="text-center my-4">
+            
+            <ul class="list-unstyled">
+                <section class="container integrantes">
+                    <h3 class="text-center">Integrantes del Proyecto</h3>
+                    <ul class="list-group integrantes-lista">
+                        <li class="list-group-item">
+                            <a href="https://ec.linkedin.com/in/iaveiga" target="_blank" class="integrante-link">
+                                <i class="bi bi-person-fill"></i>
+                                <span>IVÁN JOSÉ AVEIGA ADANAQUE</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://www.linkedin.com/in/christian-villacres-89353661" target="_blank" class="integrante-link">
+                                <i class="bi bi-person-fill"></i>
+                                <span>CHRISTIAN FABIAN VILLACRES BOTTA</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://www.linkedin.com/in/danny-lenin-torres" target="_blank" class="integrante-link">
+                                <i class="bi bi-person-fill"></i>
+                                <span>DANNY LENIN TORRES CAMPOS</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="https://www.linkedin.com/in/edilson-francisco-guillin-carrion-8989b9178" target="_blank" class="integrante-link">
+                                <i class="bi bi-person-fill"></i>
+                                <span>EDILSON FRANCISCO GUILLIN CARRION</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                
+                
+            </ul>
+        </div>
+    </div>
+<br>
+
+    <!-- Contenedor principal -->
+    <div class="container contenedor">
+        <!-- Formulario -->
+        <div class="formulario-contenedor">
+            <h2>Formulario de Registro</h2>
+            <form id="formularioRegistro">
+                <div class="mb-3">
+                    <label for="nombres" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" placeholder="Ingrese sus nombres">
+                </div>
+                <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" placeholder="Ingrese sus apellidos">
+                </div>
+                <div class="mb-3">
+                    <label for="cedula" class="form-label">Número de Cédula</label>
+                    <input type="text" class="form-control" id="cedula" placeholder="10 dígitos">
+                </div>
+                <div class="mb-3">
+                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimiento">
+                </div>
+                <div class="mb-3">
+                    <label for="correoElectronico" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="correoElectronico" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+                    <div id="requisitosContrasena" class="text-muted small">
+                        La contraseña debe cumplir:
+                        <ul>
+                            <li id="longitud" class="text-danger">Entre 12 y 20 caracteres.</li>
+                            <li id="mayuscula" class="text-danger">Al menos una letra mayúscula.</li>
+                            <li id="numero" class="text-danger">Al menos un número.</li>
+                            <li id="caracterEspecial" class="text-danger">Al menos un carácter especial.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmarContrasena" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirmarContrasena" placeholder="Repita su contraseña">
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Número de Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" placeholder="7-10 dígitos">
+                </div>
+                <div class="mb-3">
+                    <label for="codigoPostal" class="form-label">Código Postal</label>
+                    <input type="text" class="form-control" id="codigoPostal" placeholder="5 dígitos">
+                </div>
+                <div class="mb-3">
+                    <label for="tarjetaCredito" class="form-label">Número de Tarjeta de Crédito</label>
+                    <input type="text" class="form-control" id="tarjetaCredito" placeholder="16 dígitos">
+                </div>
+                <div class="mb-3">
+                    <label for="placa" class="form-label">Placa de Vehículo</label>
+                    <input type="text" class="form-control" id="placa" placeholder="Ej. ABC-1234">
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Enviar</button>
+            </form>
+        </div>
+
+        <!-- Sobre Nosotros -->
+        <div class="texto-contenedor">
+            <h2>Desarrollar:</h2>
+            <p>
+                Una interfaz tipo formulario, que permita el ingreso de los siguientes campos y que estén validados a través de expresiones regulares:
+                <ol>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Número de cédula</li>
+                    <li>Fecha de nacimiento</li>
+                    <li>Nombre de usuario</li>
+                    <li>Correo electrónico</li>
+                    <li>
+                        Contraseña y Repetir contraseña (En este campo debemos validar que ambos registros sean los mismos, y que el usuario pueda visualizar qué carácter está faltando).
+                        <ol type="a">
+                            <li>Mínimo 12 caracteres y máximo 20</li>
+                            <li>Al menos una letra mayúscula</li>
+                            <li>Al menos un número</li>
+                            <li>Al menos un carácter especial</li>
+                        </ol>
+                    </li>
+                    <li>Número de teléfono convencional y celular</li>
+                    <li>Código postal</li>
+                    <li>Número de tarjeta de crédito</li>
+                    <li>Placa de vehículo</li>
+                    <li>Documentación técnica y comentarios en el código</li>
+                </ol>
+            </p>
+            
+            <p>
+                Este proyecto busca implementar un formulario adaptativo y dinámico, validado con expresiones regulares y con funcionalidades que se ajusten tanto a dispositivos móviles como a PC.
+            </p>
+        </div>
+    </div>
+    <br>
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <!-- Información de la Universidad -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Universidad de Especialidades Espíritu Santo</h5>
+                    <p>© 2024 Todos los derechos reservados.</p>
+                    <p>Av. Samborondón, Guayaquil, Ecuador.</p>
+                </div>
+    
+                <!-- Navegación rápida -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Enlaces Útiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#formularioRegistro" class="text-white text-decoration-none">Formulario de Registro</a></li>
+                        <li><a href="#integrantes" class="text-white text-decoration-none">Integrantes</a></li>
+                        <li><a href="https://uees.edu.ec/" class="text-white text-decoration-none" target="_blank">Sitio Web UEES</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Redes Sociales -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase text-center">Síguenos</h5>
+                    <div class="social-icons d-flex justify-content-center gap-3 mt-3">
+                        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <small>
+                    Desarrollado por:
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://ec.linkedin.com/in/iaveiga" target="_blank" class="text-white text-decoration-none">
+                                Iván José Aveiga Adanaque
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/christian-villacres-89353661" target="_blank" class="text-white text-decoration-none">
+                                Christian Fabián Villacres Botta
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/danny-lenin-torres" target="_blank" class="text-white text-decoration-none">
+                                Danny Lenin Torres Campos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/edilson-francisco-guillin-carrion-8989b9178" target="_blank" class="text-white text-decoration-none">
+                                Edilson Francisco Guillin Carrion
+                            </a>
+                        </li>
+                    </ul>
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

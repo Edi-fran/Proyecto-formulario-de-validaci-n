@@ -1,0 +1,190 @@
+/* Encabezado */
+header {
+    background-color: #212529;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: #ddd;
+}
+
+/* Logo */
+.logo-universidad {
+    width: 170px;
+    height: auto;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Secciones de formulario y texto */
+.formulario-contenedor, .texto-contenedor {
+    flex: 1 1 calc(50% - 20px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #791632;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Fondo de la página */
+body {
+    background-image: url("https://media.viajando.travel/p/2d2b7a06f81e527afb44594fd26b6c64/adjuntos/276/imagenes/000/415/0000415365/guayaquiljpg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+/* Títulos y descripciones */
+.titulo1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: black;
+}
+
+.titulo2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: rgb(14, 244, 18);
+}
+
+.descripcion {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* Lista de integrantes */
+.integrantes {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.integrantes-lista {
+    padding: 0;
+    list-style: none;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaciado simétrico */
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.integrante-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000; /* Texto negro */
+    width: 100%;
+}
+
+.integrante-link i {
+    font-size: 1.5rem; /* Tamaño del ícono */
+    color: #007bff; /* Color del ícono */
+    margin-right: 15px;
+}
+
+.integrante-link span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.integrante-link:hover {
+    color: #007bff; /* Cambia el color al pasar el mouse */
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .formulario-contenedor, .texto-contenedor {
+        flex: 1 1 100%;
+    }
+
+    header, footer {
+        text-align: center;
+    }
+}
+/* Footer General */
+.footer {
+    background-color: #212529; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-size: 0.9rem; /* Tamaño de texto */
+}
+
+.footer h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    text-decoration: none; /* Quita el subrayado */
+    color: #ffffff;
+    transition: color 0.3s ease; /* Transición de color */
+}
+
+.footer a:hover {
+    color: #ffcc00; /* Amarillo al pasar el mouse */
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px; /* Espaciado entre íconos */
+}
+
+.social-link {
+    font-size: 1.5rem; /* Tamaño de íconos */
+    color: white; /* Color inicial */
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #ffcc00; /* Amarillo al pasar el mouse */
+}
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link {
+    font-size: 1.5rem; /* Tamaño del ícono */
+    color: white; /* Color inicial del ícono */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.social-link:hover {
+    color: #ffcc00; /* Color al pasar el mouse */
+}
+.social-icons {
+    display: flex;
+    justify-content: center; /* Centra los íconos horizontalmente */
+    gap: 15px; /* Espacio entre los íconos */
+    margin-top: 10px; /* Añade un poco de margen superior */
+}
+
+.social-link {
+    font-size: 2rem; /* Tamaño de los íconos */
+    color: white; /* Color inicial */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.social-link:hover {
+    color: #ffcc00; /* Cambia el color al pasar el mouse */
+}
