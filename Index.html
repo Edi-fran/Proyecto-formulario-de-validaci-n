@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentación del Proyecto</title>
     <link href="estilo.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+
 </head>
 <body>
     <!-- Header -->
@@ -71,22 +74,61 @@
                 <div class="mb-3">
                     <label for="nombres" class="form-label">Nombres</label>
                     <input type="text" class="form-control" id="nombres" placeholder="Ingrese sus nombres">
+                    <div id="requisitosNombres" class="text-muted small">
+                        Los nombres deben cumplir:
+                        <ul>
+                            <li>Solo letras y espacios.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="apellidos" class="form-label">Apellidos</label>
                     <input type="text" class="form-control" id="apellidos" placeholder="Ingrese sus apellidos">
+                    <div id="requisitosApellidos" class="text-muted small">
+                        Los apellidos deben cumplir:
+                        <ul>
+                            <li>Solo letras y espacios.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="cedula" class="form-label">Número de Cédula</label>
                     <input type="text" class="form-control" id="cedula" placeholder="10 dígitos">
+                    <div id="requisitosCedula" class="text-muted small">
+                        La cédula debe cumplir:
+                        <ul>
+                            <li>Exactamente 10 dígitos.</li>
+                            <li>No se permiten letras ni caracteres especiales.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                     <input type="date" class="form-control" id="fechaNacimiento">
+                    <div id="requisitosFecha" class="text-muted small">
+                        Debe ingresar una fecha válida.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese un nombre de usuario (letras, números y símbolos)">
+                    <div id="requisitosNombreUsuario" class="text-muted small">
+                        El nombre de usuario debe cumplir:
+                        <ul>
+                            <li>Entre 5 y 20 caracteres.</li>
+                            <li>Puede contener letras, números y símbolos.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="correoElectronico" class="form-label">Correo Electrónico</label>
                     <input type="email" class="form-control" id="correoElectronico" placeholder="ejemplo@correo.com">
+                    <div id="requisitosCorreo" class="text-muted small">
+                        El correo debe cumplir:
+                        <ul>
+                            <li>Formato válido (ejemplo: nombre@dominio.com).</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="contrasena" class="form-label">Contraseña</label>
@@ -94,36 +136,75 @@
                     <div id="requisitosContrasena" class="text-muted small">
                         La contraseña debe cumplir:
                         <ul>
-                            <li id="longitud" class="text-danger">Entre 12 y 20 caracteres.</li>
-                            <li id="mayuscula" class="text-danger">Al menos una letra mayúscula.</li>
-                            <li id="numero" class="text-danger">Al menos un número.</li>
-                            <li id="caracterEspecial" class="text-danger">Al menos un carácter especial.</li>
+                            <li>Entre 12 y 20 caracteres.</li>
+                            <li>Al menos una letra mayúscula.</li>
+                            <li>Al menos un número.</li>
+                            <li>Al menos un carácter especial.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="confirmarContrasena" class="form-label">Confirmar Contraseña</label>
                     <input type="password" class="form-control" id="confirmarContrasena" placeholder="Repita su contraseña">
+                    <div id="requisitosConfirmarContrasena" class="text-muted small">
+                        Debe coincidir con la contraseña ingresada.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Número de Teléfono</label>
                     <input type="text" class="form-control" id="telefono" placeholder="7-10 dígitos">
+                    <div id="requisitosTelefono" class="text-muted small">
+                        El número de teléfono debe cumplir:
+                        <ul>
+                            <li>Entre 7 y 10 dígitos.</li>
+                            <li>No se permiten letras ni caracteres especiales.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="telefonoCelular" class="form-label">Teléfono Celular</label>
+                    <input type="text" class="form-control" id="telefonoCelular" placeholder="10 dígitos">
+                    <div id="requisitosCelular" class="text-muted small">
+                        El número de celular debe cumplir:
+                        <ul>
+                            <li>Exactamente 10 dígitos.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="codigoPostal" class="form-label">Código Postal</label>
                     <input type="text" class="form-control" id="codigoPostal" placeholder="5 dígitos">
+                    <div id="requisitosCodigoPostal" class="text-muted small">
+                        El código postal debe cumplir:
+                        <ul>
+                            <li>Exactamente 5 dígitos.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="tarjetaCredito" class="form-label">Número de Tarjeta de Crédito</label>
                     <input type="text" class="form-control" id="tarjetaCredito" placeholder="16 dígitos">
+                    <div id="requisitosTarjetaCredito" class="text-muted small">
+                        El número de tarjeta debe cumplir:
+                        <ul>
+                            <li>Exactamente 16 dígitos.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="placa" class="form-label">Placa de Vehículo</label>
                     <input type="text" class="form-control" id="placa" placeholder="Ej. ABC-1234">
+                    <div id="requisitosPlaca" class="text-muted small">
+                        La placa debe cumplir:
+                        <ul>
+                            <li>Formato válido (Ej: ABC-1234).</li>
+                        </ul>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-danger w-100">Enviar</button>
             </form>
         </div>
+        
 
         <!-- Sobre Nosotros -->
         <div class="texto-contenedor">
@@ -225,5 +306,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="validacion.js"></script>
 </body>
 </html>
