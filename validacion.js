@@ -1,93 +1,119 @@
 // Seleccionar los contenedores
-const formulario = document.querySelector('.formulario-contenedor'); // Selecciona el contenedor con la clase "formulario-contenedor".
-const nosotros = document.querySelector('.texto-contenedor'); // Selecciona el contenedor con la clase "texto-contenedor".
+const formulario = document.querySelector('.formulario-contenedor');
+const nosotros = document.querySelector('.texto-contenedor');
 
 // Alternar la clase "activo" para transparencia al hacer clic
 function toggleTransparency(event) {
-    event.currentTarget.classList.toggle('activo'); // Alterna (añade o quita) la clase "activo" en el elemento que recibe el evento.
+    event.currentTarget.classList.toggle('activo');
 }
 
-formulario.addEventListener('click', toggleTransparency); // Asocia el evento 'click' al contenedor de formulario, aplicando la función toggleTransparency.
-nosotros.addEventListener('click', toggleTransparency); // Asocia el evento 'click' al contenedor "nosotros", aplicando la misma función.
+formulario.addEventListener('click', toggleTransparency);
+nosotros.addEventListener('click', toggleTransparency);
 
-// Validación del formulario
-document.getElementById("formularioRegistro").addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita que el formulario se envíe de manera predeterminada.
+// Validación en tiempo real y por submit
+document.getElementById("formularioRegistro").addEventListener("submit", validarFormulario);
 
-    // Patrones de validación para cada campo
-    const patrones = {
-        nombres: /^[a-zA-Z ]+$/, // Solo letras y espacios.
-        apellidos: /^[a-zA-Z ]+$/, // Solo letras y espacios.
-        cedula: /^\d{10}$/, // Solo 10 dígitos.
-        nombreUsuario: /^[a-zA-Z0-9_]{5,20}$/, // Letras, números o guiones bajos, entre 5 y 20 caracteres.
-        correoElectronico: /^[\w\.-]+@[\w\.-]+\.\w{2,4}$/, // Formato de correo válido.
-        contrasena: /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{12,20}$/, // Contraseña con mayúsculas, números, caracteres especiales, entre 12 y 20 caracteres.
-        telefono: /^\d{7,10}$/, // Números entre 7 y 10 dígitos.
-        codigoPostal: /^\d{5}$/, // Código postal de 5 dígitos.
-        tarjetaCredito: /^\d{16}$/, // Número de tarjeta de crédito de 16 dígitos.
-        placa: /^[A-Z]{3}-\d{3,4}$/ // Placa en formato ABC-123 o ABC-1234.
-    };
+// Patrones de validación para cada campo
+const patrones = {
+    nombres: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/, // Solo letras, espacios y caracteres especiales en español.
+    apellidos: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/, // Solo letras, espacios y caracteres especiales en español.
+    cedula: /^\d{10}$/, // Exactamente 10 dígitos.
+    nombreUsuario: /^[a-zA-Z0-9!@#$%^&*()_+]{5,20}$/, // Letras, números y ciertos símbolos (!@#$%^&*), entre 5 y 20 caracteres.
+    correoElectronico: /^[\w\.-]+@[\w\.-]+\.\w{2,4}$/, // Formato válido de correo electrónico.
+    contrasena: /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{12,20}$/, // Contraseña segura.
+    telefono: /^\d{7,10}$/, // Entre 7 y 10 dígitos.
+    telefonoCelular: /^\d{10}$/, // Exactamente 10 dígitos.
+    codigoPostal: /^\d{5}$/, // Código postal de 5 dígitos.
+    tarjetaCredito: /^\d{16}$/, // Tarjeta de crédito con 16 dígitos.
+    placa: /^[A-Z]{3}-\d{3,4}$/ // Placa en formato ABC-123 o ABC-1234.
+};
 
-    let esValido = true; // Variable para rastrear la validez general del formulario.
+// Validación al enviar el formulario
+function validarFormulario(e) {
+    e.preventDefault(); // Evita el envío predeterminado del formulario.
 
-    // Validar cada campo del formulario basado en los patrones
+    let esValido = true; // Para rastrear la validez del formulario.
+    let camposInvalidos = []; // Almacena los nombres de los campos con errores.
+
+    // Validar cada campo con su respectivo patrón
     for (const campo in patrones) {
-        const entrada = document.getElementById(campo); // Selecciona el elemento del formulario por su ID.
-        if (entrada && !patrones[campo].test(entrada.value.trim())) {
-            entrada.classList.add("is-invalid"); // Agrega la clase "is-invalid" si no cumple el patrón.
+        const entrada = document.getElementById(campo); // Obtiene el elemento por ID.
+        if (entrada && !patrones[campo].test(entrada.value.trim())) { // Valida el valor contra el patrón.
+            entrada.classList.add("is-invalid"); // Agrega la clase "is-invalid" si no pasa la validación.
+            camposInvalidos.push(campo); // Añade el nombre del campo con error a la lista.
             esValido = false; // Marca el formulario como inválido.
         } else if (entrada) {
-            entrada.classList.remove("is-invalid"); // Elimina la clase "is-invalid" si es válido.
+            entrada.classList.remove("is-invalid"); // Elimina la clase si el campo es válido.
         }
     }
 
-    // Validar contraseñas (comparar contrasena y confirmarContrasena)
-    const contrasena = document.getElementById("contrasena").value; // Obtiene el valor del campo "contrasena".
-    const confirmarContrasena = document.getElementById("confirmarContrasena").value; // Obtiene el valor del campo "confirmarContrasena".
-
-    if (contrasena !== confirmarContrasena) { // Comprueba si las contraseñas no coinciden.
-        document.getElementById("confirmarContrasena").classList.add("is-invalid"); // Marca el campo como inválido.
+    // Validar contraseñas (que coincidan)
+    const contrasena = document.getElementById("contrasena").value;
+    const confirmarContrasena = document.getElementById("confirmarContrasena").value;
+    if (contrasena !== confirmarContrasena) { // Verifica si las contraseñas coinciden.
+        document.getElementById("confirmarContrasena").classList.add("is-invalid");
+        camposInvalidos.push("confirmarContrasena");
         esValido = false;
     } else {
-        document.getElementById("confirmarContrasena").classList.remove("is-invalid"); // Elimina la clase si coinciden.
+        document.getElementById("confirmarContrasena").classList.remove("is-invalid");
     }
 
     // Validar si el usuario es mayor de edad
-    const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value); // Convierte la fecha de nacimiento ingresada en un objeto Date.
-    const hoy = new Date(); // Obtiene la fecha actual.
-    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear(); // Calcula la edad en años.
-    const mes = hoy.getMonth() - fechaNacimiento.getMonth(); // Calcula la diferencia de meses.
+    const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
     if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-        edad--; // Resta un año si el mes o día no ha pasado en el año actual.
+        edad--;
     }
 
-    if (edad < 18) { // Verifica si la edad es menor a 18.
-        document.getElementById("fechaNacimiento").classList.add("is-invalid"); // Marca el campo como inválido.
+    if (edad < 18) {
+        document.getElementById("fechaNacimiento").classList.add("is-invalid");
+        camposInvalidos.push("fechaNacimiento");
         esValido = false;
     } else {
-        document.getElementById("fechaNacimiento").classList.remove("is-invalid"); // Elimina la clase si es válido.
+        document.getElementById("fechaNacimiento").classList.remove("is-invalid");
     }
 
-    // Si todo es válido, muestra un mensaje de éxito
-    if (esValido) {
-        alert("Tu información fue enviada exitosamente. Pronto nos contactaremos contigo."); // Mensaje de confirmación.
+    // Mostrar alert si hay errores
+    if (!esValido) {
+        alert("Los siguientes campos tienen errores o están incompletos: " + camposInvalidos.join(", "));
+    } else {
+        alert("Tu información fue enviada exitosamente. Pronto nos contactaremos contigo.");
     }
+}
+
+// Validación en tiempo real para cada campo
+for (const campo in patrones) {
+    const entrada = document.getElementById(campo);
+    if (entrada) {
+        entrada.addEventListener("input", function () {
+            if (!patrones[campo].test(entrada.value.trim())) {
+                entrada.classList.add("is-invalid");
+            } else {
+                entrada.classList.remove("is-invalid");
+            }
+        });
+    }
+}
+
+// Validación en tiempo real para contraseñas
+document.getElementById("contrasena").addEventListener("input", function () {
+    const contrasena = this.value;
+
+    document.getElementById("longitud").classList.toggle("text-danger", contrasena.length < 12 || contrasena.length > 20);
+    document.getElementById("mayuscula").classList.toggle("text-danger", !/[A-Z]/.test(contrasena));
+    document.getElementById("numero").classList.toggle("text-danger", !/\d/.test(contrasena));
+    document.getElementById("caracterEspecial").classList.toggle("text-danger", !/[!@#$%^&*]/.test(contrasena));
 });
 
-// Dinámica de validación en tiempo real para contraseñas
-document.getElementById("contrasena").addEventListener("input", function () {
-    const contrasena = this.value; // Obtiene el valor actual del campo "contrasena".
-
-    // Valida la longitud de la contraseña (12-20 caracteres)
-    document.getElementById("longitud").classList.toggle("text-danger", contrasena.length < 12 || contrasena.length > 20);
-
-    // Valida si hay al menos una letra mayúscula
-    document.getElementById("mayuscula").classList.toggle("text-danger", !/[A-Z]/.test(contrasena));
-
-    // Valida si hay al menos un número
-    document.getElementById("numero").classList.toggle("text-danger", !/\d/.test(contrasena));
-
-    // Valida si hay al menos un carácter especial
-    document.getElementById("caracterEspecial").classList.toggle("text-danger", !/[!@#$%^&*]/.test(contrasena));
+// Validación en tiempo real para confirmar contraseña
+document.getElementById("confirmarContrasena").addEventListener("input", function () {
+    const contrasena = document.getElementById("contrasena").value;
+    if (this.value !== contrasena) {
+        this.classList.add("is-invalid");
+    } else {
+        this.classList.remove("is-invalid");
+    }
 });
 
